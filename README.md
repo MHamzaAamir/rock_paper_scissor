@@ -20,7 +20,7 @@ To run locally or contribute:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/MHamzaAamir/rock_paper_scissor_cv.git
-   cd rock_paper_scissor
+   cd rock_paper_scissor_cv
    ```
 
 2. **Install dependencies:**
