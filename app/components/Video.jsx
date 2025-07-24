@@ -44,6 +44,10 @@ export function Video() {
     });
   }, []);
 
+  const handleNoHand = () =>{
+    console.log("Cant See Your Hand")
+  }
+
   const processResults = (results) => {
     let processed = []
 
@@ -94,7 +98,12 @@ export function Video() {
 
     const results = handLandmarker.detect(offscreen);
     let processedResults = processResults(results)
-    makePrediction(processedResults)
+    if (processedResults.length == 0){
+      handleNoHand()
+    }else{
+      makePrediction(processedResults)
+    }
+    
 
   }
 

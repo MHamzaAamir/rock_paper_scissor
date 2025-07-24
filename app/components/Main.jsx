@@ -9,7 +9,7 @@ const Main = () => {
         <div className='text-2xl'>0</div>
       </div>
       <div className='flex flex-col items-center justify-center px-4 gap-4'>
-        <div className='text-3xl'>PLAY ROCK PAPERS SCISSORS !!!</div>
+        <div className='text-3xl'>PLAY ROCK PAPER SCISSORS !!!</div>
         <Video/>
       </div>
       <div className='w-[250px] flex flex-col items-center justify-center'>
