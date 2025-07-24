@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rock Paper Scissor - Computer Vision Edition
 
-## Getting Started
+Play Rock Paper Scissor against the Computer using your webcam!  
+Live demo: [rock-paper-scissor-cv.vercel.app](https://rock-paper-scissor-cv.vercel.app)
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This repository implements the classic Rock Paper Scissor game with a computer vision twist. Instead of clicking buttons, you show your choice to the webcam using hand gestures. The app leverages **MediaPipe's hand model** for real-time hand landmark detection, then classifies your gesture using a simple neural network trained with TensorFlow and deployed in-browser using ONNX Web Runtime.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Hand Detection:** Uses MediaPipe to identify and track hand landmarks from the webcam feed.
+- **Gesture Classification:** A neural network (built in TensorFlow) receives the hand landmarks and predicts your gesture: Rock, Paper, or Scissor.
+- **Web Deployment:** The model is converted to ONNX format and runs entirely in your browser through ONNX Web Runtime for fast, client-side inference.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Instructions
 
-## Learn More
+To run locally or contribute:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/MHamzaAamir/rock_paper_scissor.git
+   cd rock_paper_scissor
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies:**
+   - Make sure you have [Node.js](https://nodejs.org/) installed.
+   - Then run:
+     ```bash
+     npm install
+     ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   The app should be available at `http://localhost:3000`.
 
-## Deploy on Vercel
+4. **Play the Game:**
+   - Allow webcam access when prompted.
+   - Show your hand gesture (rock, paper, or scissors) to play against the Computer.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [MediaPipe](https://mediapipe.dev/) for hand landmark detection
+- [TensorFlow](https://www.tensorflow.org/) for gesture classification neural network
+- [ONNX Web Runtime](https://onnxruntime.ai/) for in-browser model inference
+- [Vercel](https://vercel.com/) for deployment
+
+## Live Demo
+
+Try it now: [rock-paper-scissor-cv.vercel.app](https://rock-paper-scissor-cv.vercel.app)
+
+## License
+
+This project is open source and available under the MIT License.
+
+---
+
+Enjoy playing Rock Paper Scissors !
