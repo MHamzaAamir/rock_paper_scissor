@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 import * as ort from 'onnxruntime-web';
-import Instructions from './Instructions';
 
 export function Video() {
   const class_name = ["rock", "paper", "scissor"]
@@ -15,7 +14,7 @@ export function Video() {
   const [session, setSession] = useState(null)
   const [userPoints, setUserPoints] = useState(0)
   const [computerPoints, setComputerPoints] = useState(0)
-  const [isDisabled, setDisabled] = useState(false)
+  const [isDisabled, setDisabled] = useState(true)
 
   useEffect(() => {
     const loadModels = async () => {
@@ -42,6 +41,7 @@ export function Video() {
       setSession(session)
 
       choiceRef.current.textContent = "Ready ..."
+      setDisabled(false)
 
     };
 
@@ -100,16 +100,16 @@ export function Video() {
     }
 
     if (result == "tie") {
-      choiceRef.current.textContent = `Computer Choice: ${computerChoice} | Your Choice: ${userChoice}`
+      choiceRef.current.textContent = `Your Choice: ${userChoice} | Computer Choice: ${computerChoice}`
       wonRef.current.textContent = "It's a Tie"
       wonRef.current.style.color = "#e6e605"
     } else if (result == "computer") {
-      choiceRef.current.textContent = `Computer Choice: ${computerChoice} | Your Choice: ${userChoice}`
+      choiceRef.current.textContent = `Your Choice: ${userChoice} | Computer Choice: ${computerChoice}`
       wonRef.current.textContent = "Computer Won"
       wonRef.current.style.color = "#da0303"
       setComputerPoints(computerPoints + 1)
     } else if (result == "user") {
-      choiceRef.current.textContent = `Computer Choice: ${computerChoice} | Your Choice: ${userChoice}`
+      choiceRef.current.textContent = `Your Choice: ${userChoice} | Computer Choice: ${computerChoice}`
       wonRef.current.textContent = "You won"
       wonRef.current.style.color = "#26cf08"
       setUserPoints(userPoints + 1)
@@ -178,15 +178,14 @@ export function Video() {
 
   return (
     <>
-      <Instructions />
-      <div className='min-h-screen w-screen bg-black flex justify-center py-10 gap-3'>
-        <div className='w-[250px] flex flex-col items-center justify-center text-[#26cf08]'>
+      <div className='h-screen w-screen bg-black flex flex-col md:flex-row justify-center items-center py-10 px-5 gap-10'>
+        <div className='flex flex-col items-center justify-center text-[#26cf08] text-center'>
           <div className='text-2xl'>Your Score</div>
           <div className='text-2xl'>{userPoints}</div>
         </div>
 
-        <div className='relative max-w-[500px] flex flex-col items-center justify-center gap-3'>
-          <video ref={videoRef} autoPlay playsInline />
+        <div className='flex flex-col items-center justify-center gap-3'>
+          <video ref={videoRef} autoPlay playsInline className='w-[80%]' />
           <canvas ref={canvasRef} className='hidden' />
           <div className='flex justify-center items-center gap-2'>
             <button className='cursor-pointer rounded-2xl p-2 bg-gray-800' disabled={isDisabled} onClick={startTimer}>
@@ -203,7 +202,7 @@ export function Video() {
           </div>
         </div>
 
-        <div className='w-[250px] flex flex-col items-center justify-center text-[#da0303]'>
+        <div className='flex flex-col items-center justify-center text-[#da0303] text-center'>
           <div className='text-2xl'>Computer Score</div>
           <div className='text-2xl'>{computerPoints}</div>
         </div>
