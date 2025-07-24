@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Instructions = () => {
     return (
-        <div className='h-screen flex flex-col justify-center items-center gap-10 px-4 bg-black text-center'>
+        <div className='min-h-screen flex flex-col justify-center items-center gap-10 px-4 text-center'>
             <div className='text-3xl'>PLAY ROCK PAPER SCISSORS !!!</div>
             <div className='flex flex-col gap-2 justify-center items-center'>
                 <div className='text-xl'>Instructions</div>

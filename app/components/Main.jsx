@@ -31,8 +31,8 @@ export function Video() {
           },
           runningMode: 'IMAGE',
           numHands: 1,
-          minHandDetectionConfidence: 0.3,
-          minHandPresenceConfidence: 0.3
+          minHandDetectionConfidence: 0.5,
+          minHandPresenceConfidence: 0.5
         }
       );
       setHandLandmarker(handLandmarkerTemp)
@@ -178,8 +178,8 @@ export function Video() {
 
   return (
     <>
-      <div className='h-screen w-screen bg-black flex flex-col md:flex-row justify-center items-center py-16 px-5 gap-10'>
-        <div className='flex flex-col items-center justify-center text-[#26cf08] text-center'>
+      <div className='min-h-screen w-screen flex flex-col md:flex-row justify-center items-center py-16 px-5 gap-1'>
+        <div className='w-1/3 flex flex-col items-center justify-center text-[#26cf08] text-center'>
           <div className='text-2xl'>Your Score</div>
           <div className='text-2xl'>{userPoints}</div>
         </div>
@@ -188,10 +188,10 @@ export function Video() {
           <video ref={videoRef} autoPlay playsInline className='w-[80%] scale-x-[-1]' />
           <canvas ref={canvasRef} className='hidden' />
           <div className='flex justify-center items-center gap-2'>
-            <button className='cursor-pointer rounded-2xl p-2 bg-gray-800' disabled={isDisabled} onClick={startTimer}>
+            <button className='cursor-pointer rounded-2xl p-2 bg-gray-400' disabled={isDisabled} onClick={startTimer}>
               Play Round
             </button>
-            <button className='cursor-pointer rounded-2xl p-2 bg-gray-800' disabled={isDisabled} onClick={reset}>
+            <button className='cursor-pointer rounded-2xl p-2 bg-gray-400' disabled={isDisabled} onClick={reset}>
               Reset
             </button>
           </div>
@@ -202,7 +202,7 @@ export function Video() {
           </div>
         </div>
 
-        <div className='flex flex-col items-center justify-center text-[#da0303] text-center'>
+        <div className='w-1/3 flex flex-col items-center justify-center text-[#da0303] text-center'>
           <div className='text-2xl'>Computer Score</div>
           <div className='text-2xl'>{computerPoints}</div>
         </div>
