@@ -7,7 +7,7 @@ const Instructions = () => {
             <div className='text-3xl'>PLAY ROCK PAPER SCISSORS !!!</div>
             <div className='flex flex-col gap-2 justify-center items-center'>
                 <div className='text-xl'>Instructions</div>
-                <div>Press the Next Round button and show your hand in the camera</div>
+                <div>Press the Play Round button and show your hand in the camera</div>
                 <div>Try to beat the Computer. Good Luck !!</div>
                 <div className='flex gap-2'>
                     <div>
