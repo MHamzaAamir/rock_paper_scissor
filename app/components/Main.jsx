@@ -179,7 +179,7 @@ export function Video() {
   return (
     <>
       <div className='min-h-screen w-screen flex flex-col md:flex-row justify-center items-center py-16 px-5 gap-3'>
-        <div className='w-1/3 flex flex-col items-center justify-center text-sm sm:text-2xl text-[#26cf08] text-center'>
+        <div className='hidden w-1/3 sm:flex flex-col items-center justify-center text-2xl text-[#26cf08] text-center'>
           <div>Your Score</div>
           <div>{userPoints}</div>
         </div>
@@ -202,9 +202,20 @@ export function Video() {
           </div>
         </div>
 
-        <div className='w-1/3 flex flex-col items-center justify-center text-sm sm:text-2xl text-[#da0303] text-center'>
+        <div className='hidden w-1/3 sm:flex flex-col items-center justify-center text-2xl text-[#da0303] text-center'>
           <div>Computer Score</div>
           <div>{computerPoints}</div>
+        </div>
+
+        <div className='flex sm:hidden gap-8'>
+          <div className='flex flex-col items-center justify-center text-sm text-[#26cf08] text-center'>
+            <div>Your Score</div>
+            <div>{userPoints}</div>
+          </div>
+          <div className='flex flex-col items-center justify-center text-sm text-[#da0303] text-center'>
+            <div>Computer Score</div>
+            <div>{computerPoints}</div>
+          </div>
         </div>
       </div>
 
