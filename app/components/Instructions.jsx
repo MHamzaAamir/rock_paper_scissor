@@ -8,6 +8,7 @@ const Instructions = () => {
             <div className='flex flex-col gap-2 justify-center items-center'>
                 <div className='text-xl'>Instructions</div>
                 <div>Press the Play Round button and show your hand in the camera</div>
+                <div>Note: I kept the website white to act as a flash but make sure your hand is well lit.</div>
                 <div>Try to beat the Computer. Good Luck !!</div>
                 <div className='flex gap-2'>
                     <div>
